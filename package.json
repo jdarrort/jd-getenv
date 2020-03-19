@@ -1,0 +1,19 @@
+{
+  "name": "jd-getenv",
+  "version": "1.0.0",
+  "description": "Tool to retrieve and check env vars",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdarrort/jd-getenv.git"
+  },
+  "author": "J.Darrort",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdarrort/jd-getenv/issues"
+  },
+  "homepage": "https://github.com/jdarrort/jd-getenv#readme"
+}
