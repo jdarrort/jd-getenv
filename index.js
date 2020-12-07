@@ -7,7 +7,7 @@ class EnvChecker {
     int(envvar, _default) {
         let value = this.get(envvar);
         try {
-            if ((!value && arguments.length == 1) || !(/^-?\d+$/.test(value))) { throw 1};
+            if ((value === undefined && arguments.length == 1) || !(/^-?\d+$/.test(value))) { throw 1};
             return parseInt(value) ;
         } catch (e) {
             if (_default) return _default;
@@ -17,7 +17,7 @@ class EnvChecker {
     positiveInt(envvar, _default) {
         let value = this.get(envvar);
         try {
-            if ((!value && arguments.length == 1) || !(/^-?\d+$/.test(value))) { throw 1};
+            if ((value === undefined && arguments.length == 1) || !(/^-?\d+$/.test(value))) { throw 1};
             return parseInt(value) ;
         } catch (e) {
             if (_default) return _default;
