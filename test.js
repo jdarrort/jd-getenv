@@ -19,3 +19,4 @@ console.log(EnvGet.string("NUM4","default_num4"));
 console.log(EnvGet.string("STR1","default_str1"));
 console.log(EnvGet.string("STR2","default_str2"));
 console.log(EnvGet.string("STR3","default_str3"));
+console.log(EnvGet.string("STR4","default_str4"));

@@ -37,9 +37,14 @@ class EnvChecker {
     
     string(envvar, _default) {
         let val = this.get(envvar);
-        if (  (val === undefined  || val === null ) &&  arguments.length == 1 ) {
-            throw new Error(`EnvVarChecker : ${envvar} is not a STRING, and no default value`);
-        }
+        if   (val === undefined  || val === null ) {
+            if (arguments.length == 1 ) {
+                throw new Error(`EnvVarChecker : ${envvar} is not a STRING, and no default value`);
+            }
+            else {
+                return _default;
+            }    
+        } 
         return  val !== "" ? val : _default;        
     }    
 }
