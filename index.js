@@ -5,20 +5,20 @@ class EnvChecker {
         else return null;
     }
     int(envvar, _default) {
-        let value = this.get(envvar);
+        let val = this.get(envvar);
         try {
-            if ((value === undefined && arguments.length == 1) || !(/^-?\d+$/.test(value))) { throw 1};
-            return parseInt(value) ;
+            if (((val === undefined  || val === null ) && arguments.length == 1) || !(/^-?\d+$/.test(val))) { throw 1};
+            return parseInt(val) ;
         } catch (e) {
             if (_default !== undefined) return _default;
         }
         throw new Error(`EnvChecker : ${envvar} is not an Int, and no default value`);
     }
     positiveInt(envvar, _default) {
-        let value = this.get(envvar);
+        let val = this.get(envvar);
         try {
-            if ((value === undefined && arguments.length == 1) || !(/^-?\d+$/.test(value))) { throw 1};
-            return parseInt(value) ;
+            if (((val === undefined  || val === null ) && arguments.length == 1) || !(/^-?\d+$/.test(val))) { throw 1};
+            return parseInt(val) ;
         } catch (e) {
             if (_default !== undefined) return _default;
         }
@@ -27,7 +27,7 @@ class EnvChecker {
     json(envvar, _default) {
         let val = this.get(envvar);
         try {
-            if (val === undefined || !(/^[\[|\{]/.test(val))) { throw 1 };
+            if ((val === undefined  || val === null ) || !(/^[\[|\{]/.test(val))) { throw 1 };
             return JSON.parse(val);
         } catch (e) {
             if (_default !== undefined) return _default;
@@ -37,10 +37,10 @@ class EnvChecker {
     
     string(envvar, _default) {
         let val = this.get(envvar);
-        if (  val === undefined &&  arguments.length == 1 ) {
+        if (  (val === undefined  || val === null ) &&  arguments.length == 1 ) {
             throw new Error(`EnvVarChecker : ${envvar} is not a STRING, and no default value`);
         }
-        return  this.get(envvar) || _default;        
+        return  val !== "" ? val : _default;        
     }    
 }
 module.exports = new EnvChecker();
